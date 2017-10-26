@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>学习</title>
+</head>
+<!--
+原来body还可以这样写 哈哈
+<body bgcolor='yellow' text='red' leftmargin='100' topmargin='100'>
+-->
+<body>
+<!---
+p标签原来可以直接加align
+但是当body用了leftmargin时，align=right 时，也会留有相应的边距
+格式：<p align="排列方式">…</p>
+属性名称	  属性值		 说明
+ align		   left			往左靠（默认）
+			   center		往中靠
+			   right 		往右靠
+--->
+<p align='right'>测试</right>
+<!---
+<hr>标签 所谓的100%其实也就是屏幕最大宽度 而高度呢  则是100px  默认的则是2px高  高度是用size标识  不是height
+    noshade是指没有阴影，放大了看，其实<hr>默认值是有阴影的，最小值为1，0和1其实是一样的，写负数也一样
+	默认是有阴影的  高度大了 看上去像是空心的柱子，再上它则表示实心线
+		
+--->
+<br>普通水平直线<hr>
+<br>粗度为5，长度为100的虚线
+	<hr size='-1'width='100'>
+<br>粗度为10%，长度为10%的实线
+	<hr size='10%'width='10%'noshade>
+<!----
+center标签感觉类似margin:0,auto  即水平居中
+----->
+<center>页面内容:背景为黄，文字为红，左边距100，上边距100。向中对齐。</center>
+<!---
+h(1,2,3,4,5,6)  标签与p标签拥有类似的属性
+(7).特殊字符设置
+格式：
+<			&lt;
+>			&gt;
+&			&amp;
+空格		&nbsp;
+和号		&amp;
+引号		&quot;
+撇号		&apos;(IE不支持)
+
+分			&cent;
+磅			&pound;
+日圆		&yen;
+节			&sect;
+版权		&copy;
+注册商标	&reg;
+乘号		&times;
+除号		&divide;
+左边和右边同义。
+--->
+<!--
+(9).实体字符控制标记
+1.<b>…</b>			粗
+2.<i>…</i>			斜
+3.<s>…</s>			删	
+4.<u>…</u>			下划
+5.<tt>…</tt>		电报
+6.<sub>…</sub>		下标
+7.<sup>…</sup>		上标
+-->
+1.<b>粗</b>
+2.<i>斜</i>
+3.<s>删</s>
+4.<u>下划</u>
+5.<tt>电报</tt>
+6.<sub>下标</sub>
+7.<sup>上标</sup>
+<br>
+<!--
+(10).语意字符控制
+1.<address>…</address>		地址
+2.<big>…</big>				大字
+3.<del>…</del>				删除
+4.<ins>...</ins>			修改
+5.<samll>…</small>			小字
+6.<strong>…</strong>		加强语气(加粗)
+7.<em>...</em>				加强语气(倾斜)
+-->
+1.<address>地址</address>
+2.<big>大字</big>
+3.<del>删除</del>
+4.<ins>修改</ins>
+5.<small>小字</small>
+6.<strong>加强语气(加粗)</strong>
+7.<em>加强语气(倾斜)</em>
+<!--
+(11).<font>字体控制(已废弃)
+格式：<font>…</font>
+属性名称		  属性值			说明
+size			  0-7				字体大小
+color			  英文或十六		颜色
+face 			  字体				字体
+注：这里的color十六进制为#XXYYZZ格式，css中为#XYZ格式。
+-->
+<br>
+<font size='7'color='blue'face='华文行楷'>字体0-7，这里7，蓝色，华文行楷</font>
+<!--
+(12).格式化
+格式：<pre>…</pre>
+让书写的文字格式化！
+-->
+<p>下面是一个箭头！</p>
+<pre>
+          .
+           .
+.............
+           .
+          .
+</pre>
+(13).引用文本（不出现）
+格式：<blockquote>...</blockquote>
+属性名称		属性值		说明
+ cite			 url       被引用的地址
+-->
+
+</body>
+</html>

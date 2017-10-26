@@ -1,0 +1,14 @@
+var query = document.querySelector.bind(document);
+var queryAll = document.querySelectorAll.bind(document);
+var fromId = document.getElementById.bind(document);
+var fromClass = document.getElementsByClassName.bind(document);
+var fromTag = document.getElementsByTagName.bind(document);
+
+需要注意的地方是，这些方法返回的要么是单个 Node 节点，要么是 NodeList 而 NodeLis 是类数组的对象，但并不是真正的数组，所以拿到之后不能直接使用 map,forEach 等方法。
+
+正确的操作姿势应该是：
+
+Array.prototype.map.call(document.querySelectorAll('button'),function(element,index){
+    element.onclick = function(){
+    }
+})

@@ -1,0 +1,237 @@
+<html>	
+<meta charset="utf-8">
+<head>
+<title>表格</title>
+</head>
+<style>
+</style>
+<body>
+<!--
+1.表格的基本格式
+<table>和<tr>和<th>和<td>，
+<tr>设置行，
+<th>设置标题，数据默认居中加粗，
+<td>设置数据
+-->
+<table>
+	<tr><th>A</th><th>B</th><th>C</th></tr>
+	<tr><td>11</td><td>12</td><td>13</td></tr>
+	<tr><td>21</td><td>22</td><td>23</td></tr>
+	<tr><td>31</td><td>32</td><td>33</td></tr>
+</table>
+<!--
+2.<table>标签下的属性
+ 属性名称			 属性值		  说明
+	border           像素         设置表格边线
+	cellspacing      像素/百分比  存储格框线宽度(优先于border）
+	cellpadding      像素/百分比  数据与框线的距离
+	width            像素         表格宽度
+	height           像素/百分比  表格高度
+	align（水平）    left         表格左靠
+	                 center       表格居中
+	                 right        表格右靠
+	bgcolor          英文/十六    表格背景颜色（优先于边框颜色）
+	backgroud        URL          表格的背景图片（优先于背景颜色）
+	summary          字符串       描述表格数据说明（注释，不显示）
+	bordercolor      英文/十六    边框的颜色（优先级低于下两位）
+	bordercolorlight 英文/十六    边框的亮色（外左上，内右下）
+	bordercolordark  英文/十六    边框的暗色（外右下，内左上）
+优先级：
+	background>bgcolor>bordercolorlight/bordercolordark>bordercolor，
+	cellspacing>border
+-->	
+<br>下表1，边线为1，左靠，黄色背景，宽为200，高为200。
+<br>下表2，边线为5，左靠，宽为200，高为200，边框蓝色。
+<br>下表3，边线为5，右靠，存储格框线为0，宽为200，高为200，背景图片1.jpg。
+<br>
+<table border='1'align='left'bgcolor='yellow'width='200'height='200'>
+	<tr><th>下</th><th>表</th><th>1</th></tr>
+	<tr><td>11</td><td>12</td><td>13</td></tr>
+	<tr><td>21</td><td>22</td><td>23</td></tr>
+	<tr><td>31</td><td>32</td><td>33</td></tr>
+</table>
+<table border='5'align='left'bordercolor='blue'width='200'height='200'>
+	<tr><th>下</th><th>表</th><th>2</th></tr>
+	<tr><td>11</td><td>12</td><td>13</td></tr>
+	<tr><td>21</td><td>22</td><td>23</td></tr>
+	<tr><td>31</td><td>32</td><td>33</td></tr>
+</table>
+<table border='5'align='right'cellspacing='0'width='200'height='200'background='1.jpg'>
+	<tr><th>下</th><th>表</th><th>3</th></tr>
+	<tr><td>11</td><td>12</td><td>13</td></tr>
+	<tr><td>21</td><td>22</td><td>23</td></tr>
+	<tr><td>31</td><td>32</td><td>33</td></tr>
+</table>
+<!--
+3.<table>标签下的边框设置
+	frame       void         不要显现表格的边线
+	            above        只显现表格的上边线
+	            below        只显现表格的下边线
+	            hsides       只显示表格的上下边线
+	            vsides       只显现表格的左右边线
+	            lhs          只显现表格的左边线
+	            rhs          只显现表格的右边线
+	            border/box   显现出表格的所有边线
+	rules       rows         只显示横行的格线框
+	            cols         只显示直行的格线框
+	            all          显示全部的格线框
+	            groups       表示列组合水平部分
+	            none         不显示任何格线框
+注：不常用，用到再查。frame属性须在border属性值不为0的状态下使用。
+-->
+<!--
+4.<tr><th><td>标签下的常用属性
+ 属性名称		   属性值		说明
+  width            像素/百分比  设置宽（tr无用）
+  height           像素/百分比  设置高（tr有用）
+  bgcolor          英文/十六    数据栏的颜色设（tr优先于table）
+  align（水平）    left         数据靠左
+                   center       数据居中
+                   right        数据靠右
+  valign（垂直）   top          数据靠上
+                   middle       数据靠中
+                   bottom       数据靠下
+  nowrap           无           在单元格中换行（tr中无效，td中使用不换行）
+注：层次越低，范围越小，优先级越高<td>和<th>相似。
+    产生逻辑矛盾时，以优先级为准。应避免出现逻辑错误。
+	td不设置属性是默认是水平靠左 垂直居中
+-->
+<br><br><br><br><br><br><br><br><br><br><br>
+<br>第1行垂直靠下，12水平居中。
+<br>第2行水平居中。
+<br>31垂直靠上，32红色。
+<table border='1'width='200'height='200'>
+	<tr><th>A</th><th>B</th><th>C</th></tr>
+	<tr valign='bottom'><td>11</td><td align='center'>12</td><td>13</td></tr>
+	<tr align='right'><td>21</td><td>22</td><td>23</td></tr>
+	<tr><td valign='top'>31</td><td bgcolor='red'>32</td><td>33</td></tr>
+	<tr><td>11</td><td>22</td><td>33</td></tr>
+</table>
+<!--
+5.拆分合并单元格，默认值1格
+ 属性名称	属性值	 说明
+  colspan    数字    向右扩展栏位
+  rowspan    数字    向下扩展栏位
+-->
+<br>
+<br>11向下整合21，32向右整合33。
+<table border='1'width='200'height='200'>
+	<tr><th>A</th><th>B</th><th>C</th></tr>
+	<tr><td rowspan='2'>11<br>+<br>21</td><td>12</td><td>13</td></tr>
+	<tr><td>22</td><td>23</td></tr>
+	<tr><td>31</td><td colspan='2'>32+33</td></tr>
+</table>
+<!--
+6.表格的结构化、直列化、标题
+-->
+<!--
+(1).结构化格式：
+<table>
+<thead>...</thead>    --------表头区
+<tbody>...</tbody>    --------表体区
+  .
+  .
+  .
+<tfoot>...</tfoot>	  --------表尾区
+</table>
+注：结构化后，表头、表体和表尾换位无影响。
+-->
+<table border='1'width='200'height='200'>
+	<tbody>
+		<tr><td>11</td><td>12</td><td>13</td></tr>
+		<tr><td>21</td><td>22</td><td>23</td></tr>
+		<tr><td>31</td><td>32</td><td>33</td></tr>
+	</tbody>
+	<tfoot>
+		<tr><th colspan='3'>表尾</th><tr>
+	</tfoot>
+	<thead>
+		<tr><th colspan='3'>表头</th></tr>
+	</thead>
+</table>
+<!--
+(2).直列化格式：<colgroup>...</colgroup>
+属性名称		属性值			  说明
+ align			left 			  靠左
+				center			  靠中
+				right			  靠右
+ valign			top				  靠上
+				middle			  靠中
+				bottom			  靠下
+ bgcolor		英文/十六		  背景颜色
+ span			数字			  直列数目
+ width			像素/百分比		  宽度
+个别直列设置
+格式:<col>功能完全和<colgroup>一样.
+-->
+<br>直列化，前2列，背景红。
+<table border='1'width='200'height='200''>
+	<colgroup bgcolor='red'span='2'></colgroup>
+	<tr><th>A</th><th>B</th><th>C</th><th>D</th></tr>
+	<tr><td>11</td><td>12</td><td>13</td><td>14</td></tr>
+	<tr><td>21</td><td>22</td><td>23</td><td>24</td></tr>
+	<tr><td>31</td><td>32</td><td>33</td><td>34</td></tr>
+	<tr><td>41</td><td>42</td><td>43</td><td>44</td></tr>
+</table>
+<!--
+(3).表格的标题：
+<table>
+  <caption>...</caption>
+</table>
+<caption>下的属性值有:
+属性名称		属性值		 说明
+ align			top			 标题在表格上方
+                bottom		 标题在表格下方
+-->
+<br>
+<table border='1'width='200'height='200'>
+	<caption align='bottom'>标题在表格下方</caption>
+	<tr><th>A</th><th>B</th><th>C</th></tr>
+	<tr><td>11</td><td>12</td><td>13</td></tr>
+	<tr><td>21</td><td>22</td><td>23</td></tr>
+	<tr><td>31</td><td>32</td><td>33</td></tr>
+</table>
+<!--
+7.嵌套表格的应用
+-->
+<br>嵌套表格
+<table border='1'width='200'height='200'cellspacing='0'cellpadding='0'>
+	<tr><td>11</td><td>12</td></tr>
+	<tr>
+		<td width='100'height='100'>
+			<table border='1'width='100%'height='100%'cellspacing='0'cellpadding='0'rules='all'frame='void'>
+				<tr><td>a</td><td>b</td></tr>
+				<tr><td>c</td><td>d</td></tr>
+			</table>
+		</td>
+		<td>22</td>
+	</tr>
+</table>
+<!--
+8.表格作业
+-->
+<br>
+<table border='1'width='300'>
+	<tr><th colspan='2'>称呼</th><th>姓名</th><th>年龄</th><th width='100'>备注</th></tr>
+	<tr align='center'><td rowspan='3'>长<br>辈</td><td>父</td><td>父名</td><td>父龄</td>
+	<td rowspan='8'valign='top'align='left'width='100'style='word-break:break-all;'>
+	<ul>
+		<li>111111111111111111111</li>
+		<li>222222222222222222222</li>
+		<li>333333333333333333333</li>
+	</ul>
+	</td></tr>
+	<tr align='center'><td>母</td><td>母名</td><td>母龄</td></tr>
+	<tr align='center'><td>祖母</td><td>祖母名</td><td>祖母龄</td></tr>
+	<tr align='center'><td rowspan='2'>同<br>辈</td><td>兄</td><td>兄名</td><td>兄龄</td></tr>
+	<tr align='center'><td>弟</td><td>弟名</td><td>弟龄</td></tr>
+	<tr align='center'><td colspan='2'>帮佣</td><td>帮佣名</td><td>帮佣龄</td></tr>
+	<tr align='center'><td rowspan='2'>宠<br>物</td><td>狗</td><td>狗名</td><td>狗龄</td></tr>
+	<tr align='center'><td>猫</td><td>猫名</td><td>猫龄</td></tr>
+</table>
+<!--
+表中单独的<tr/>，可以代表一个空行，略微增加上下行的间距
+样式属性word-break:break-all可以实现表格自动换行
+-->
+</body>
+</html>

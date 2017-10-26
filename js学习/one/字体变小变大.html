@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<style type="text/css">
+		.yanse{
+			background: red;
+			width: 400px;
+			height: 200px;
+			text-align: center; t
+			line-height: 200px;
+		    padding-top: 200px;
+			color: #fff;
+			border: 2px soild yellow;
+		}
+		.yanse2{
+			background: yellow;
+			width: 400px;
+			height: 200px;
+			text-align: center; t
+			line-height: 200px;
+		    padding-top: 200px;
+			color: #fff;
+			border: 2px soild yellow;
+		}
+	</style>
+</head>
+<body>
+<button id="btn1">+</button>
+<button id='btn2'>-</button>
+<button id="btn3">红</button>
+<button id='btn4'>黄</button>
+<p>我再联系javascript</p>
+</body>
+<script type="text/javascript">
+	var OBtn1 =document.getElementById('btn1');
+	var OBtn2 =document.getElementById('btn2');
+	var OBtn3 =document.getElementById('btn3');
+	var OBtn4 =document.getElementById('btn4');
+	var OP    =document.getElementsByTagName('p')[0];
+	var num = 15 ;
+	OBtn1.onclick = function () {
+	
+		if(num < 40){
+			num ++;
+			OP.style.fontSize = num +'px';
+
+		}
+	}
+
+	OBtn2.onclick = function () {
+	
+		if(num > 14){
+			num --;
+			OP.style.fontSize = num +'px';
+		}
+		
+	}
+
+	OBtn3.onclick = function () {
+		OP.className = 'yanse';
+	
+	
+		
+	}	
+
+	OBtn4.onclick = function () {
+		OP.className = 'yanse2';
+	
+		
+	}
+
+
+</script>
+</html>

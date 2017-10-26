@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+	<title>date对象</title>
+</head>
+<body>
+<script type="text/javascript">
+function TimeDemo(){ 
+	var d, s = "当前本地时间为: "; 
+	var c = ":";   d = new Date();
+    s += d.getHours() + c;   
+    s += d.getMinutes() + c;  
+     s += d.getSeconds() + c;
+    s += d.getMilliseconds();   
+    return(s);
+}
+console.log(TimeDemo()	)
+</script>
+</body>
+</html>

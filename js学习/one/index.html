@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<title><?php echo $this->tVar['web']['title']; ?></title>
+<link type="image/x-icon" href="favicon.ico" rel="icon" />  
+<link type="image/x-icon" href="favicon.ico" rel="shortcut icon" />
+<meta name="keywords" content="<?php echo $this->tVar['web']['keywords']; ?>"/>
+<meta name="description" content="<?php echo $this->tVar['web']['description']; ?>"/>
+<script>
+<?php if ($this->tVar['yy']) { ?>document.addEventListener("WeixinJSBridgeReady", function () { if (!_init) { audioClick(); } }, false);<?php } ?>
+</script>
+<link rel="stylesheet" href="css/style.min.css" />
+<script type="text/javascript" src="js/JavaScript.js" ></script>
+<script type="text/javascript" src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+<script type="text/javascript">
+wx.config({
+    debug: false,
+    appId: "<?php echo $this->tVar['sdkarr']['appId']; ?>",
+    timestamp: "<?php echo $this->tVar['sdkarr']['timestamp']; ?>",
+    nonceStr: "<?php echo $this->tVar['sdkarr']['nonceStr']; ?>",
+    signature: "<?php echo $this->tVar['sdkarr']['signature']; ?>",
+    jsApiList: [
+      'checkJsApi',
+      'onMenuShareTimeline',
+      'onMenuShareAppMessage',
+      'onMenuShareQQ',
+      'onMenuShareWeibo',
+      'onMenuShareQZone'
+    ]
+});
+wx.ready(function () {
+    var arr = {  //例如分享到朋友圈的API
+       title: "<?php echo $this->tVar['web']['title']; ?>", // 分享标题
+       link: "<?php echo $this->tVar['url']; ?>", // 分享链接
+       imgUrl: "<?php echo $this->tVar['web']['logo']; ?>?v="+Math.random() // 分享图标
+    };
+    wx.onMenuShareTimeline(arr);
+    arr.desc = "<?php echo $this->tVar['web']['description']; ?>";
+    wx.onMenuShareAppMessage(arr);
+    wx.onMenuShareQQ(arr);
+    wx.onMenuShareWeibo(arr);
+    wx.onMenuShareQZone(arr);
+});
+wx.error(function (res) {
+    alert(res.errMsg);  //打印错误消息。及把 debug:false,设置为debug:ture就可以直接在网页上看到弹出的错误提示
+});
+</script>
+</head>
+<body onload="page_init();">
+        <?php if ($this->tVar['yy']) { ?>
+        <div style="display:none;"><audio id="audio_kemu_sound" src="<?php echo $this->tVar['yy']; ?>" autoplay="" preload=""></audio></div>
+        <div id="ch_audio" style="position:fixed;width:40px;height:40px;background-image:url(bgmBtn.svg);background-size:40px 40px;right:20px;top:20px;">&nbsp;</div>
+        <?php } ?>
+	<div class="fod conter">
+		<img src="images/1.jpg" alt="" />
+	</div>
+	<div class="text1">
+		<h3>找我们!</h3>
+		<i class="iconfont icon-sanjiaoxingshixia"></i>
+		<h4>资深设计师为您专属定制</h4>
+		<p>一个具有营销转化功能的广告宣传页</p>
+	</div>
+	<div class="fod conter">
+		<img src="images/2.jpg" alt="" />
+		<img src="images/3.jpg" alt="" />
+		<img src="images/4.jpg" alt="" />
+		<img src="images/5.jpg" alt="" />
+		<img src="images/6.jpg" alt="" />
+	</div>
+	<form action="" onsubmit="return false;">
+		<div><span><i class="iconfont icon-kehu"></i></span><input type="text" id='cname' value="请输入公司名称" onfocus="if(this.value=='请输入公司名称'){this.value=''}" onblur="if(this.value==''){this.value='请输入公司名称'}"/></div>
+		<div><span><i class="iconfont icon-lianxiren1"></i></span><input type="text" id="name" value="请输入联系人" onfocus="if(this.value=='请输入联系人'){this.value=''}" onblur="if(this.value==''){this.value='请输入联系人'}"/></div>
+		<div><span><i class="iconfont icon-dianhua"></i></span><input type="text" id="tel" value="请输入手机或联系电话" onfocus="if(this.value=='请输入手机或联系电话'){this.value=''}" onblur="if(this.value==''){this.value='请输入手机或联系电话'}"/></div>
+		<div><span><i class="iconfont icon-weixin"></i></span><input type="text" id="wx_qq" value="请输入微信或者QQ" onfocus="if(this.value=='请输入微信或者QQ'){this.value=''}" onblur="if(this.value==''){this.value='请输入微信或者QQ'}"/></div>
+		<input type="hidden" id="token" value="<?php echo $this->tVar['token']; ?>">
+		<a href="javascript:go();">立即预约<i class="boxsha"></i></a>
+	</form>
+        
+        <script src="./pub/js/zepto.min.js"></script>
+        <script src="./pub/js/csn.check.js"></script>
+	<script>
+            function page_init() {
+                <?php if ($this->tVar['yy']) { ?>audioClick();setInterval(function() {
+                    if (_yuyin.paused || !_init) { return; }
+                    _du %= 360;
+                    $('#ch_audio').css('transform', 'rotate('+_du+'deg)');
+                    _du += 5;
+                },20);
+            }
+            var _init;
+            var _du = 0;
+            var _ch_audio = document.getElementById('ch_audio');
+            var _yuyin = document.getElementById('audio_kemu_sound');
+            _ch_audio.onclick = function() {
+                audioClick();
+            };
+            $('#audio_kemu_sound').on('canplay', function() { if (!_init) { audioClick(); } });
+            //按钮事件
+            function audioClick() {
+                if (_yuyin.paused) { _yuyin.play(); } else { _yuyin.pause(); }
+                if (!_init && !_yuyin.paused) { _init = true; }
+            <?php } ?>}
+	    function go() {
+		var _name = $('#name').val();
+		var _cname = $('#cname').val();		
+		var _tel = $('#tel').val();
+		var _wx_qq = $('#wx_qq').val();
+		var _token = $('#token').val();
+		if(_cname == '请输入公司名称'){
+			_cname = '';
+		}
+		if (!isUserName(_cname)) {
+		    show_bug({i:'公司名称格式不正确'});
+		    return;
+		}
+		if (_name == '请输入联系人') {
+		    show_bug({i:'请输入联系人'});
+		    return;
+		}
+		if (!isUserName(_name) ) {
+		    show_bug({i:'姓名格式不正确'});
+		    return;
+		}
+		if (_tel == '请输入手机或联系电话') {
+		    show_bug({i:'请输入手机或联系电话'});
+		    return;
+		}
+		if (!isMobile(_tel) && !isPhone(_tel)) {
+		    show_bug({i:'电话格式不正确'});
+		    return;
+		}
+		if (_wx_qq == '请输入微信或QQ') {
+		    _wx_qq = '';
+		}
+		if (_wx_qq.length > 0 && !isWeixin(_wx_qq) && !isQQ(_wx_qq)) {
+		    show_bug({i:'微信或QQ号不合格'});
+		    return;
+		}
+		$.post('index.php?s=/Home/Index/refer', {name:_name,tel:_tel,token:_token,wxqq:_wx_qq,cname:_cname}, function(json) {
+		    if (json.ok == 'y') {
+			show_bug({i:'提交成功，我们会尽快联系您！',e:1});
+		    } else {
+			show_bug({i:json.e,e:2});
+		    }
+		});		    
+	    }
+	</script>
+</body>
+</html>

@@ -1,0 +1,19 @@
+<input type="submit" value="提交" hidefocus="true" />
+2.只读文本框内容,在input里添加属性值 readonly
+<input type="text" readonly />
+3.防止退后清空的TEXT文档(可把style内容做做为类引用)
+<input type="text" style="behavior:url(#default#savehistory);" />
+4.ENTER键可以让光标移到下一个输入框
+<input type="text" onkeydown="if(event.keyCode==13)event.keyCode=9" />
+5.只能为中文(有闪动)
+<input type="text" onkeyup="value=value.replace(/[ -~]/g,'')" onkeydown="if(event.keyCode==13)event.keyCode=9" />
+6.只能为数字(有闪动)
+<input type="text" onkeyup="value=value.replace(/[^\d]/g,'') " onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/[^\d]/g,''))" />
+7.只能为数字(无闪动)
+<input type="text" style="ime-mode:disabled" onkeydown="if(event.keyCode==13)event.keyCode=9" onkeypress="if ((event.keyCode<48 || event.keyCode>57)) event.returnValue=false" />
+8.只能输入英文和数字(有闪动)
+<input type="text" onkeyup="value=value.replace(/[\W]/g,'')" onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/[^\d]/g,''))" />
+9.屏蔽输入法
+<input type="text" name="url" style="ime-mode:disabled" onkeydown="if(event.keyCode==13)event.keyCode=9" />
+10. 只能输入 数字，小数点，减号（-） 字符(无闪动)
+<input onkeypress="if (event.keyCode!=46 && event.keyCode!=45 && (event.keyCode<48 || event.keyCode>57)) event.returnValue=false" />11. 只能输入两位小数，三位小数(有闪动)

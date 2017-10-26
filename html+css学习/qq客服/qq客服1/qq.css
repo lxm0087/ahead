@@ -1,0 +1,50 @@
+*{margin: 0;padding: 0;}
+.qq_bg{
+  width: 124px;
+    background: url(http://www.djjwz.com/images/qq03.png) repeat-y;
+    padding: 10px 0px 10px;
+    overflow: hidden;
+
+}
+.ni{
+  margin-left: 16px;
+}
+.hotline{
+  margin-left: 15px;
+}
+p{font-size: 14px;}
+.qq_bg li{
+  list-style: none;
+    width: 138px;
+    height: 56px;
+    float: left;
+    /*margin-left: 20px;*/
+    /*text-align: center;*/
+    line-height: 26px;
+    /*background: url(http://www.djjwz.com/images/qq04.png) no-repeat;*/
+    background-size:  124px 26px;
+    display: inline;
+    margin-bottom: 5px;
+    list-style-type: none;
+}
+
+.qq_bg li a {
+      height: 55px;
+    line-height: 25px;
+    display: block;
+    font-size: 14px;
+    color: #6e6e6e;
+    text-decoration: none;
+    margin-left: 10px;  
+/*margin-left: 15px;
+  font-size: 12px;*/
+}
+  img{
+    border: 0;
+  }
+  #QQFloat{
+    font-size:20px;
+  }
+  .qq_t{
+    font-size:0px;
+  }

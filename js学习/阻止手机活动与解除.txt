@@ -1,0 +1,2 @@
+document.ontouchmove =function(e){e.initEvent();} ×èÖ¹
+document.ontouchmove =function(e){e.initEvent();} ½â¿ª

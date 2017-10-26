@@ -1,0 +1,40 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+.qq_bg {
+  width: 2.18rem;
+  background: url(http://www.djjwz.com/images/qq03.png) repeat-y;
+  padding: 0.2rem 0rem 0.2rem;
+  overflow: hidden;
+}
+.qq_bg li {
+  width: 1.8rem;
+  height: 0.52rem;
+  float: left;
+  margin-left: 0.25rem;
+  /*text-align: center;*/
+  line-height: 0.52rem;
+  background: url(http://www.djjwz.com/images/qq04.png) no-repeat;
+  background-size: 2.47rem 0.52rem;
+  display: inline;
+  margin-bottom: 0.1rem;
+  list-style-type: none;
+}
+.qq_bg li img {
+  width: 0.46rem;
+  height: 0.4rem;
+}
+.qq_bg li a {
+  margin-left: 0.3rem;
+  font-size: 0.24rem;
+}
+img {
+  border: 0;
+}
+#QQFloat {
+  font-size: 0.4rem;
+}
+.qq_t {
+  font-size: 0rem;
+}

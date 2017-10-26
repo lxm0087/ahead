@@ -1,0 +1,18 @@
+var textNode = document.createTextNode("xxx");//创建文本节点
+var elementNode = document.createElement("p");//创建元素节点(p)
+var body = document.getElementsByTagName("body")[0];//获取body节点
+body.appendChild(elementNode);//元素节点添加到body节点下，添加在末尾
+elementNode.appendChild(textNode);//将文件节点添加到元素节点下
+//获取要删除的节点，elementNode.length-1 表示最后一个指定节点(这里表示最后一个p节点)
+var delElementNode = elementNode.item(elementNode.length-1);
+body.removeChild(delElementNode)；//移除指定节点
+body.insertBefore(newNode, oldNode);//在body中的oldNode前插入newNode节点
+body.replaceChild(newNode, oldNode);//将body中的oldNode替换为newNode节点
+//创建一个新的属性
+var style = document.createAttribute("style");
+//为节点添加新属性
+option.attributes.setNamedItem(style);
+//设置新属性的值
+option.setAttribute("style","color:red");
+http://www.jb51.net/article/34740.htm   document.createElement()用法
+http://www.cnblogs.com/cailiqiang/p/4177458.html   js 属性大全

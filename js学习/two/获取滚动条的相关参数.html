@@ -1,0 +1,86 @@
+<!--    一、jQuery获取的相关方法
+Js代码  收藏代码
+jquery 获取滚动条高度  
+  
+获取浏览器显示区域的高度 ：   
+$(window).height();   
+获取浏览器显示区域的宽度 ：  
+  
+$(window).width();   
+获取页面的文档高度 ：  
+$(document).height();   
+获取页面的文档宽度 ：$(document).width();  
+  
+获取滚动条到顶部的垂直高度 ：  
+  
+$(document).scrollTop();   
+获取滚动条到左边的垂直宽度 ：  
+  
+$(document).scrollLeft();  
+  
+计算元素位置和偏移量：  
+  
+$(id).offset();  
+  
+offset方法是一个很有用的方法，它返回包装集中第一个元素的偏移信息。默认情况下是相对body的偏移信息。结果包含 top和left两个属性。  
+  
+offset(options, results)  
+options.relativeTo　　指定相对计  
+算偏移位置的祖先元素。这个元素应该是relative或absolute定位。省略则相对body。  
+options.scroll　　是否把  
+滚动条计算在内，默认TRUE  
+options.padding　　是否把padding计算在内，默认false  
+options.margin  
+　　是否把margin计算在内，默认true  
+options.border　　是否把边框计算在内，默认true  
+  
+   
+ 但是我在使用jQuery的方法的时候在IE6上会发生不兼容现象。
+ 
+  二、使用js获取的相关方法
+ 
+Js代码  收藏代码
+//回到页面顶部  
+    $("#goTotop").click(function(){  
+        $('body,html').animate({scrollTop:0},1500); //点击按钮让其回到页面顶部  
+    });  
+      
+    $(window).scroll(function() {  
+        var yheight1=window.pageYOffset; //滚动条距顶端的距离  
+        var yheight=getScrollTop(); //滚动条距顶端的距离  
+        var height =document.documentElement.clientHeight//浏览器可视化窗口的大小  
+        var top=parseInt(yheight)+parseInt(height)-217;  
+        var divobj=$(".kf");  
+        divobj.attr('style','top:'+top+'px;');  
+    })  
+      
+/** 
+ * 获取滚动条距离顶端的距离 
+ * @return {}支持IE6 
+ */  方法1
+function getScrollTop() {  
+        var scrollPos;  
+        if (window.pageYOffset) {  
+        scrollPos = window.pageYOffset; }  
+        else if (document.compatMode && document.compatMode != 'BackCompat')  
+        { scrollPos = document.documentElement.scrollTop; }  
+        else if (document.body) { scrollPos = document.body.scrollTop; }   
+        return scrollPos;   
+}  
+//方法2
+  function getScrollTop()
+    {
+        var scrollTop=0;
+        if(document.documentElement&&document.documentElement.scrollTop)
+        {
+            scrollTop=document.documentElement.scrollTop;
+        }
+        else if(document.body)
+        {
+            scrollTop=document.body.scrollTop;
+        }
+        return scrollTop;
+    }
+
+
+ -->

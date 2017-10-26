@@ -1,0 +1,41 @@
+<html>
+<meta charset="utf-8">
+<title>bom学习</title>
+<body>
+
+<input type=button value="Open Window" onclick="open_win()" />
+<input type=button value="close Window" onclick="close_win()" />
+
+<!-- 
+	open  中有两个参数，第一个是打开的页面地址，第二个是方式，返回的是一个对象
+	close 有兼容 只能关闭chorme内核的浏览器 火狐不能关闭，IE需要询问，但是用open打开的页面不存在兼容的问题，都可以关闭
+	window.navigator.userAgent   获取当前浏览器信息
+	window.hash                  获取#号后面的信息
+	window.location              获取浏览地址的信息
+	window.search                 获取浏览器?后面的信息
+
+	document.documentElement.clientwidth   可视区宽度  记住W要大写
+	document.documentElement.clientheight  可视区高度 记住H要大写
+	document.documentElement.scrollTop     获取顶部滚动距离       
+	document.documentElement.scrollLeft    获取左边部滚动距离       
+	document.documentElement.offsetHeight  获取文档元素的高 存在兼容性问题  IE下会将其视为可视化高度
+	建议使用  document.body.offsetHeight
+	onscroll         当滚动条滚动时触发，按时间去计算执行的次数
+	onresize         当窗口大小发生改变的时候，按时间去计算执行的次数
+	
+
+ -->
+</body>
+<script type="text/javascript">
+// function open_win(){
+// 	window.open("http://www.w3school.com.cn")
+// }
+// function close_win(){
+// 	window.close();
+// }
+// if(window.navigator.userAgent.indexOf('Firefox') != -1){
+// 	alert('我是火狐');
+// }
+// alert(document.documentElement.clientWidth)
+</script>
+</html>

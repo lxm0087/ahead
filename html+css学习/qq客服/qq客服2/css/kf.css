@@ -1,0 +1,21 @@
+/* CSS Document */
+.kfcss{ background:url(../img/kfbj.png) right center no-repeat;width:125px; height:300px; margin:0px auto; text-align:left; z-index:999;}
+.kfcss2 {  height:55px; line-height:25px; width:120px; margin-top:4px ;text-align:center; overflow:hidden;}
+.kfcss2 a{ height:55px; line-height:25px; display:block;  color:#6e6e6e}
+.kfcssn{ background:url(../img/bjx.png) bottom center no-repeat;}
+a{text-decoration: none;}
+   #bottomNav {
+        overflow-x: hidden;
+        z-index: 999;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        height: 50px;
+        width: 100%;
+        _position: absolute;
+        /* for IE6 */
+        _top: expression(documentElement.scrollTop+ documentElement.clientHeight- this.offsetHeight);
+        /* for IE6 */
+        overflow: visible;
+        background: url(images/3.jpg) repeat-x;
+      }

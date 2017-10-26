@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+	<title>键盘事件</title>
+	<style type="text/css">
+		.div1{
+			width: 200px;
+			height: 200px;
+			background: red;
+			position: absolute;
+			top:200px;
+		}
+	</style>
+</head>
+<!-- 
+键盘事件的返回的都是一个数值，除了以下三个键 shiftKey,ctrlKey,altKey
+不是所有的元素都支持键盘事件，这点与获取焦点和失去焦点雷同，即与用户有交互的元素才有但文档
+document是个例外
+ -->
+<body>
+<!-- 
+例 1 模拟qq按回车键发送消息
+ -->
+<input type="text" >
+<ul>
+	
+</ul>
+<!-- 
+例 2  通过控制上下左右键来控制盒子
+
+ -->
+ <div class="div1"></div>
+</body>
+<script type="text/javascript">
+// document.onclick = function (ev) {
+// 	var ev = ev ||  event;
+// 	alert(ev.ctrlKey)
+// }
+
+	//例 1
+	// var oIpt = document.getElementsByTagName('input')[0];
+	// var oUl = document.getElementsByTagName('ul')[0];
+	// oIpt.onkeyup = function(ev){
+	// 	if(this.value != ''){
+	// 		var ev = ev || event ;
+	// 		if(ev.keyCode == 13 && ev.ctrlKey == true){
+	// 			var oLi = document.createElement('li');
+	// 			oLi.innerHTML = this.value;
+	// 			if(oUl.children[0]){
+	// 				oUl.insertBefore(oLi,oUl.children[0]);
+	// 			}else{
+	// 				oUl.appendChild(oLi);
+	// 			}
+	// 		}		
+	// 	}		
+	// }
+
+	// 例 2
+	var oDiv = document.querySelector('.div1');
+	document.onkeydown = move;
+	function move(ev){
+		
+		var ev = ev || event;
+	    if(ev.keyCode == 37)oDiv.style.left = oDiv.offsetLeft - 10+'px';
+	    // if(ev.keyCode == 38)oDiv.style.top = oDiv.offsetTop - 10+'px';
+	    if(ev.keyCode == 39)oDiv.style.left =oDiv.offsetLeft + 10+'px';
+	    // if(ev.keyCode == 40)oDiv.style.top = oDiv.offsetTop + 10+'px';
+
+
+
+	      // if(ev.keyCode == 39) oDiv.style.Left = oDiv.offsetLeft + 10+'px';
+	       // if(ev.keyCode == 40) oDiv.style.Top = oDiv.offsetTop + 10+'px';
+	}
+</script>
+</html>

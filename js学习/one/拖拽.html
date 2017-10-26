@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+	<title>拖拽</title>
+	<style type="text/css">
+		div{
+			width: 100px;
+			height: 100px;
+			background: red;
+			position: absolute;
+		}
+		p{
+			display: block;
+			width: 100px;
+			height: 100px;
+			background: green;
+		}
+	</style>
+</head>
+<!-- 
+拖拽的主要三个函数
+onmousedown onmousemove onmouseup
+   鼠标选中  鼠标移动	鼠标释放
+   然而，在拖拽的过程中，会有一些问题出现，浏览器会有一些事件默认事件，例如，选中文字后，默认就会有拖拽效果
+   解决的办法就是阻止默认事件，即加上return false ;可即便这样，还是会有兼容性的问题，在非标准ie下，会失效
+   解决的办法是给盒子绑上 ‘全局捕获’ ：当我们给一个 元素设置全局捕获以后，那么这个元素就会监听后续发生的所有事件，当有事件发生的时候，就会被当前设置了全局捕获的元素所触发。
+   设置全局捕获: setCapture
+   取消全局捕获: releaseCapture
+   当拖拽图片时，也会受默认事件的影响，解决办法同上。
+
+ -->
+<body>
+<div></div>
+<p></p>
+</body>
+<script type="text/javascript">
+	var oDiv = document.getElementsByTagName('div')[0];
+	var down;
+	var _left, _top;
+	oDiv.onmousedown = function (ev) {
+		ev = ev || event;
+		_top = ev.clientY - oDiv.offsetTop;
+		_left = ev.clientX - oDiv.offsetLeft;
+		down = true;
+	};
+	document.onmousemove = function(ev){
+		if (down) {
+			ev = ev || event;
+			if (ev.clientY - _top < 0 || ev.clientX - _left < 0) { return; }
+			oDiv.style.top = ev.clientY - _top + 'px';
+			oDiv.style.left = ev.clientX - _left + 'px';
+		}
+	};
+	oDiv.onmouseup = function(){
+		down = false;
+	};
+</script>
+</html>

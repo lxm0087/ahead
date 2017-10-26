@@ -1,0 +1,99 @@
+.flex {
+  display: flex;             /* OLD - Android 4.4- */
+  display: -webkit-box;      /* OLD - iOS 6-, Safari 3.1-6 */
+  display: -moz-box;         /* OLD - Firefox 19- (buggy but mostly works) */
+  display: -ms-flexbox;      /* TWEENER - IE 10 */
+  display: -webkit-flex;     /* NEW - Chrome */
+}
+.flex-1{
+  flex: 1;
+  -webkit-box-flex: 1;      /* OLD - iOS 6-, Safari 3.1-6 */
+  -moz-box-flex: 1;         /* OLD - Firefox 19- */   /* For old syntax, otherwise collapses. */
+  -webkit-flex: 1;          /* Chrome */
+  -ms-flex: 1;              /* IE 10 */
+}
+.flex-y{
+  -webkit-box-orient: vertical;
+  flex-direction: column;
+  -webkit-flex-direction: column;
+  -moz-flex-direction: column;
+  -ms-flex-direction: column;
+  -o-flex-direction: column;
+}
+.flex-xc{
+  /* 09版 */
+  -webkit-box-pack: center;
+  /* 12版 */
+  -webkit-justify-content: center;
+  -moz-justify-content: center;
+  -ms-justify-content: center;
+  -o-justify-content: center;
+  justify-content: center;
+}
+.flex-wrap{
+  -webkit-flex-wrap: wrap;
+  -moz-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  -o-flex-wrap: wrap;
+  flex-wrap: wrap;
+}
+.flex-between {
+    -webkit-box-pack: justify;
+    -webkit-justify-content: space-between;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+}
+.flex-around {
+  -webkit-justify-content: space-around;
+  justify-content: space-around;
+}
+.flex-start {
+  -webkit-justify-content: flex-start;
+  justify-content: flex-start;
+}
+.flex-end {
+  -webkit-justify-content: flex-end;
+  justify-content: flex-end;
+}
+.flex-jx-center{
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+}
+.flex-da{
+    -webkit-box-flex: 1.0;
+    -moz-flex-grow: 1;
+    -webkit-flex-grow: 1;
+    flex-grow: 1;
+}
+.flex-xiao{
+    -webkit-box-flex: 1.0;
+    -moz-flex-shrink: 1;
+    -webkit-flex-shrink: 1;
+    flex-shrink: 1;
+}
+/* 子元素-显示在从左向右（从上向下）第1个位置，用于改变源文档顺序显示 */
+.flex-order1 {
+  -webkit-box-ordinal-group: 1;   /* OLD - iOS 6-, Safari 3.1-6 */
+  -moz-box-ordinal-group: 1;      /* OLD - Firefox 19- */
+  -ms-flex-order: 1;              /* TWEENER - IE 10 */
+  -webkit-order: 1;               /* NEW - Chrome */
+  order: 1;                       /* NEW, Spec - Opera 12.1, Firefox 20+ */
+}
+/* 子元素-显示在从左向右（从上向下）第2个位置，用于改变源文档顺序显示 */
+.flex-order2 {
+  -webkit-box-ordinal-group: 2;   /* OLD - iOS 6-, Safari 3.1-6 */
+  -moz-box-ordinal-group: 2;      /* OLD - Firefox 19- */
+  -ms-flex-order: 2;              /* TWEENER - IE 10 */
+  -webkit-order: 2;               /* NEW - Chrome */
+  order: 2;                       /* NEW, Spec - Opera 12.1, Firefox 20+ */
+}
+/*box-flex: <value>;
+伸缩：<一个浮点数，默认为0.0，即表示不可伸缩，大于0的值可伸缩，柔性相对>
+
+//flex-grow: <number>; /* default 0 */
+/*放大：默认0（即如果有剩余空间也不放大，值为1则放大，2是1的双倍大小，以此类推）
+
+//flex-shrink: <number>; /* default 1 */
+/*缩小：默认1（如果空间不足则会缩小，值为0不缩小）*/

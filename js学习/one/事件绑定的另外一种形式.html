@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>事件绑定的另外一种方式</title>
+</head>
+<!-- 
+1.使用场景，防止同一个对象绑定多个事件时被覆盖，（在一般的DOM对象中直接绑定事件操作中，后者会将前者覆盖）
+2.类似于之前的bind和on的绑定操作
+3.有兼容问题
+IE在非标准的环境中只能使用 attachEvent,但是这个方法没有第三个参数，指定是否可以捕获
+IE在标准的环境中可以使用 attachEven 和 addEventListener , addEventListener 有3个参数值，分别是事件名，函数名，是否捕获
+而且捕获与冒泡是想对立的，即不是捕获就是冒泡，默认是fasle(冒泡)
+chorme 和 firefox 中 都支持 addEventListener ，
+4.attachEvent 和 addEventListener 的区别
+1.前者没有捕获，而后者有。
+2.前者事件名称有On，而后者没有。
+3. 前者的事件执行顺序，在标准IE是正序，在非标准IE是倒序。
+   而后者始终都是正序的
+4.事件中this的指向是window,而后者是事件对象本身。
+
+ 我们在处理兼容时，需要调整一下事件中this的指向，而此时需要用到function中内置的call方法，类似于arr的length属性，
+ 调用函数 ab() == ab.call(),而call的存在的意义在与它在传值时的第一个参数将作为改变 this 指向对象的存在，设置为
+ null，则表示不你不想改变当前的指向，例如，function ad(a,b){ a+b } , ad.call( i,a,b ); call中的第二个参数 和第三个
+ 等同于前者中所传递的参数，
+ -->
+<body>
+<button>点我测试</button>
+</body>
+<script type="text/javascript">
+	var oBtn = document.getElementsByTagName('button')[0];
+	oBtn.addEventListener('click',run);
+	oBtn.addEventListener('click',run1);
+
+    function bind(obj,Evt,fn){
+    	if(obj.addEventListener){
+    		obj.addEventListener(Evt,fn,false);
+    	}else{
+    		obj.attachEvent('on'+Evt,function(){
+    				fn.call(obj);
+    		});
+    	}
+    }
+</script>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<meta charset="utf-8">
+<head>
+	<title>三角形</title>
+	<script src='min.js'></script>
+</head>
+<style type="text/css">
+   .test{
+   	  border-left:50px solid transparent;
+   	  border-right:50px solid yellow;
+   	  border-bottom:100px solid transparent;
+
+
+
+   }
+/*	.test{
+
+		width: 0px;
+		height: 0px;
+	    border-left: 50px solid transparent;
+	    border-right: 50px solid transparent;
+	    border-bottom: 50px solid yellow;
+	}*/
+	html,body{
+		height:100%;
+	}
+</style>
+<body>
+   <div class="test"></div>
+
+</body>
+<script type="text/javascript">
+     $(function () {
+     	 $('.test').on('click',function(e){
+     	 	e.stopPropagation();
+     	 	if ($(this).css('transform') == 'rotate(180deg)') {
+     	 		$('.test').animate({transform:'rotate(0deg)'},200);
+     	 	} else {
+     	 		$(this).animate({transform:'rotate(180deg)'},200);
+     	 	}     	 	
+     	 })
+     	 $('body').on('click',function(){
+     	 		$('.test').animate({transform:'rotate(0deg)'},200);
+     	 })
+
+
+     	 
+     })
+</script>
+</html>

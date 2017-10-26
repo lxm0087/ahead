@@ -1,0 +1,21 @@
+推荐总是使用 hasOwnProperty 方法， 这将会避免原型对象扩展带来的干扰: 
+
+复制代码
+function allpro(obj){  
+    var keys=[];   
+    var values=[];    
+    for(var key in obj){   
+        //只遍历对象自身的属性，而不包含继承于原型链上的属性。  
+        if (obj.hasOwnProperty(key) === true){  
+            keys.push(key);    
+            values.push(obj[key]);   
+            }                 
+        }  
+    alert("keys is ："+keys+" and values is ："+values);    
+}  
+Object.prototype.bar = 1;// 修改Object.prototype  
+var o={"name":"wjy","age":26,"sex":"female"};//定义一个object对象   
+allpro(o);  
+//keys is : name,age,sex and values is: wjy,26,female  
+复制代码
+object对象没有length属性，那么获取object对象的length就可以通过遍历得到key值的数组的长度来获取啦~ 

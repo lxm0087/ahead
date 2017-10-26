@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+	<title>图片切换</title>
+	<style>
+		#btn1,#btn2{ width:300px;text-align:center; }
+		 button{ margin:5px; }
+		 #content{width: 300px;height: 300px;position:relative;text-align: center;}
+		 #_top,#_bottom{margin: 0;width: 300px;height: 30px;line-height: 30px;font-size:14px ;
+		    font-weight: blod;background: black;color: #fff;filter: alpha(opacity:80);opacity:0.8;position:absolute;}
+		 #_top{top:30px;}
+		 #_bottom{bottom:-30px;}
+	</style>
+</head>
+<body>
+	<div id='content'>
+   <div id="btn1">
+	<button>顺序播放</button>
+	<button>循环播放</button>
+   </div>
+   <p id='_top'>数据加载中...</p>
+	<img id="img" style="width: 300px;height:300px;" src="" alt="">
+	<p id='_bottom'>数据加载中...</p>
+   <div id="btn2">
+	<button>上一张</button>
+	<button>下一张</button>
+    </div>
+	</div>
+</body>
+<script>
+	var oBtn1 =  document.getElementById('btn1');
+    var _btn1 = oBtn1.getElementsByTagName('button');
+	var oImg = document.getElementById('img');
+	var pic = ['images/1.jpg','images/2.jpg','images/3.jpg','images/4.jpg'];
+	var text =['最爱','的','刘','诗诗'];
+	var oBtn2 = document.getElementById('btn2');
+	var _btn2 = oBtn2.getElementsByTagName('button');
+	var oTop=  document.getElementById('_top');
+	var oBottom =  document.getElementById('_bottom');
+	var n = 0 ;
+	var onoff = true;
+	setTimeout(qidong, 2000);
+	function qidong(){
+	
+			oTop.innerHTML = n+1+'/'+pic.length;
+			oBottom.innerHTML = text[n];
+			oImg.src=pic[n];
+	}
+
+	_btn1[0].onclick = function () {
+        onoff = true ;
+    }
+    _btn1[1].onclick = function () {
+        onoff = false ;
+    }
+	_btn2[0].onclick = function () {
+        n--;
+        if(onoff){
+            if( n < 0 ){n = 0;alert('已经是第一张了')}
+		}else{
+            if( n < 0 ){n = pic.length - 1;}
+		}
+
+        oImg.src = pic[n];
+         oTop.innerHTML = n+1+'/'+pic.length;
+        oBottom.innerHTML = text[n];
+    }
+    _btn2[1].onclick = function () {
+        n++;
+        if(onoff) {
+            if ( n > pic.length - 1 ){n = pic.length - 1;alert('已经是最后一张了');}
+        }else{
+            if( n > pic.length - 1 ) n = 0;
+		}
+        oImg.src = pic[n];
+        oTop.innerHTML = n+1+'/'+pic.length;
+        oBottom.innerHTML = text[n];
+        
+    }
+</script>
+</html>

@@ -1,0 +1,34 @@
+   <script language="javascript">
+        //校验手机号码：必须以数字开头，除数字外，可含有"-"
+        function isMobile(object, likel) {
+            var s = document.getElementById(object.id).value;
+            var reg0 = /^13\d{5,9}$/;
+            var reg1 = /^15\d{5,9}$/;
+            var reg2 = /^18\d{5,9}$/;
+            var reg3 = /^(([0\+]\d{2,3})(\D|\s){0,2})(\d{7,8})$/;
+            var my = false;
+            var li = document.getElementById(likel.id).value;
+            if (li == "输入您的真实姓名" || li == "") {
+                alert('请输入您的姓名');
+                likel.focus();
+                return false;
+            }
+            else {
+                if (reg0.test(s)) my = true;
+                if (reg1.test(s)) my = true;
+                if (reg2.test(s)) my = true;
+                if (reg3.test(s)) my = true;
+                if (s != "") {
+                    if (!my) {
+                        alert('请输入正确的手机号码');
+                        object.value = "";
+                        object.focus();
+                        return false;
+                    }
+                    else {
+                        return true;
+                    }
+                }
+            }
+        }
+    </script>

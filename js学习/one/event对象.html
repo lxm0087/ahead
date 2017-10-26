@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+	<title>event对象学习</title>
+</head>
+<!-- 事件对象，当一个事件发生的时候，和当前这个对象发生的这个事件有关的一些详细信息都会被临时的保存到一个指定的地方=event对象，供我们在需要时调用   飞机上的黑匣子 
+兼容
+ie/chrom :event 是个内置全局对象
+ff:函数第一个参数就是事件对象，（这个是标准，同样适用于ie和chrom ，但是在非标准的ie则不适用，）
+处理兼容的办法
+调用时  可以用for...in的方法把它循环出来，触发次数是以时间来计算的，当然这个时间间隔很短
+其中cilentX,cilentY分别表示可视区距离顶部的距离和距离左边的距离
+事件移除 detachEvent与attachEvent 对应  addEventListener 与 removeEventListener 对应
+function(ev){
+	var ev = ev || event ;
+}
+
+-->
+<body>
+<!-- <button>点我进行测试</button>
+<script type="text/javascript">
+var oBtn = document.getElementsByTagName('button')[0];
+   oBtn.onclick = test;
+	function test(ev){
+	var ev = ev || event;
+	for(var attr in ev){
+	   console.log(attr+'='+ev[attr])
+	}
+}
+</script> -->
+<!-- 移动的盒子
+如果有滚动条 需要加上滚动的距离
+
+事件默认行为
+oncontextmenu
+ -->
+<div style='width: 100px;height: 100px;position:absolute;top:100px;left: 100px;background:red;'></div>
+
+<script type="text/javascript">
+	var oDiv = document.getElementsByTagName('div')[0];
+	document.onmousemove = yidong;
+	function yidong(ev){
+		var ev = ev || event ;	
+		oDiv.style.top = ev.clientY+'px';
+		oDiv.style.left = ev.clientX+'px';
+	}
+</script>
+</body>
+</html>

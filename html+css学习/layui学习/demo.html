@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>layui</title>
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <link rel="stylesheet" href="layui/css/layui.css"  media="all">
+  <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.8.0.js">
+</script>
+  <!-- 注意：如果你直接复制所有代码到本地，上述css路径需要改成你本地的 -->
+</head>
+<body>
+<form class="layui-form" action="">
+	<input value="测试" name="">
+      <input type="tel" name="title" lay-verify="phone" autocomplete="off" placeholder="请输入标题" >
+      <input type="text" name="test" hidden value="1">
+
+    <button   lay-submit="" lay-filter="demo2">跳转式提交</button>
+</form>
+<script src="layui/layui.js" charset="utf-8"></script>
+</body>
+<script type="text/javascript">
+
+console.log($("input[name = 'test']").val());
+	layui.use('form',function(){
+			var form = layui.form();
+			form.on('submit(demo2)',function(data){
+			console.log(data.field);
+			return false;
+		});
+	});
+
+	
+
+</script>
+</html>

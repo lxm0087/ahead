@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+<title>数组对象</title>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<script>
+//    var d, s;                      // 声明变量。
+//    d = new Date();                // 创建 Date 对象。
+//    s = "Current setting is ";
+//    s += d.toLocaleString();       // 转换为当前区域。
+////    return(s);                     // 返回转换的日期。
+//console.log(s)
+//var boo = new Boolean(true)
+//a = boo.toString()
+//document.write(typeof a)
+
+// var a = [1,2,3];
+// var b = a.unshift(6);
+// document.write(a)
+var bbb = {
+    i: 10,
+    toString: function() {
+        console.log('toString');
+        return this.i;
+    },
+    valueOf: function() {
+        console.log('valueOf');
+        return this.i;
+    }
+}
+alert(bbb);// 10 toString
+alert(+bbb); // 10 valueOf
+alert(''+bbb); // 10 valueOf
+alert(String(bbb)); // 10 toString
+alert(Number(bbb)); // 10 valueOf
+alert(bbb == '10'); // true valueOf
+alert(bbb === '10'); // false
+
+
+</script>
+</body>
+</html>

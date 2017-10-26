@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>div垂直居中</title>
+	<style type="text/css">
+		.big-div{width: 100%;height: 600px;background: yellow;position:relative;}
+		.small-div{background: blue;width: 1200px;height: 200px;margin:auto; position:absolute; left:50%; top:50%;   margin-left:-600px;margin-top:-100px;}
+           
+/*        方法1 .big-div{position: relative;}
+            	.small-div{position: absolute;top: 0; left: 0; bottom: 0; right: 0; }*/
+       
+          /*方法2 .big-div{display:flex;justify-content:center;align-items:center;}*/
+       /*   方法3 .big-div{display: table-cell;text-align: center;vertical-align: middle;}
+                  .small-div{display: inline-block;}* 这个方法不太好/
+/*            方法4 .big-div{position:relative;}
+				  .small-div{margin:auto; position:absolute; left:50%; top:50%;   margin-left:-600px;margin-top:-100px;}*/
+	</style>
+</head>
+<body>
+<div class="big-div">
+	<div class="small-div">
+		
+	</div>
+</div>
+</body>
+</html>

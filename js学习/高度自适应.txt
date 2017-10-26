@@ -1,0 +1,24 @@
+
+changeContentHeight();
+changeIframeHeight();
+
+window.onresize = function(){
+    changeContentHeight();
+    changeIframeHeight();
+};
+
+function changeContentHeight() {
+    var div = document.getElementById("page-content");
+    if (div){
+        div.height = document.documentElement.clientHeight;
+    }
+};
+
+function changeIframeHeight(){
+    var iframe = document.getElementsByClassName('tab-main');
+    if (iframe.length >= 1){
+        for(var i = 0; i<=iframe.length; i++){
+            iframe[i].height = document.documentElement.clientHeight - 120;
+        }
+    }
+}

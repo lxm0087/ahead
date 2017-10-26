@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>for循环应用</title>
+</head>
+<style type="text/css">
+	div{width: 40px;height: 40px;background: blue;position: absolute; font-size: 30px;
+		color: #fff;}
+</style>
+<script type="text/javascript">
+  var str = '';
+  var fx = 1 ;
+  var aDiv = document.getElementsByTagName('div');
+	window.onload = function(){
+
+		for(var i = 0,c=19,step=50,top=10;i<c;i++){
+
+			 // str+='<div style="top:'+Math.floor(i/10)*100+'px;left:'+(i%10)*100+'px">'+i+'</div>';
+			 str+= '<div style="left:'+(10+(i*50))+'px;top:'+top+'px"></div>';
+			if (i == 9) { step = -step; }
+			top += step;
+		}
+		document.body.innerHTML = str;
+	}
+</script>
+<body>
+
+</body>
+</html>
