@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>test</title>
+  </head>
+  <!-- /******鼠标划线*******/ -->
+  <body style='background:#000;'>
+    <canvas id="canvas" width="1000" height="800" style="background:#fff;"></canvas>
+    <script type="text/javascript">
+      var oC = document.getElementById('canvas');
+      var oGc= oC.getContext('2d');
+         oC.onmousedown = function(ev){
+           var ev = ev || window.event;
+           oGc.moveTo(ev.clientX-oC.offsetLeft,ev.clientY-oC.offsetTop);
+           oC.onmousemove = function(ev){
+             var ev = ev ||  window.event;
+             oGc.lineTo(ev.clientX-oC.offsetLeft,ev.clientY-oC.offsetTop);
+           }
+           document.onmouseup = function(ev){
+                document.onmousemove =null;
+               document.onmousedown = null;
+           }
+           oGc.stroke();
+         }
+
+    </script>
+  </body>
+</html>

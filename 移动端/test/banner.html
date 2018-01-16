@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>banner</title>
+</head>
+<script>
+    var html = document.documentElement;
+        html.style.fontSize = html.clientWidth/15 + 'px';
+        document.addEventListener('touchstart',start);
+        function start(ev) {
+            var e = ev || window.event;
+            e.preventDefault();
+        }
+</script>
+<style>
+    body{margin: 0;overflow: hidden;}
+    .wrap{position: relative;}
+    .list{position: absolute;top: 0;left:0;width: 400%;}
+    ul,li{margin: 0;padding: 0;}
+    .list li{list-style: none;float: left;width: 15rem;}
+    .list img{width: 15rem;display: block;}
+</style>
+<body>
+<section class="wrap">
+        <ul class="list">
+            <li><img src="img/2.jpg" alt=""></li>
+            <li><img src="img/3.jpg" alt=""></li>
+            <li><img src="img/4.jpg" alt=""></li>
+            <li><img src="img/5.jpg" alt=""></li>
+        </ul>
+</section>
+<script>
+    var wrap = document.querySelector('.wrap'),
+        list = document.querySelector('.list'),
+        disX =0,listL =0,w = wrap.clientWidth;
+        list.innerHTML+=  list.innerHTML;
+    var len = 0,w=0;
+        w = wrap.clientWidth;
+        len = list.children.length;
+
+        list.style.width = len * w +'px';
+        list.addEventListener('touchstart',dianji);
+        list.addEventListener('touchend',end);
+        list.addEventListener('touchmove',move);
+
+        function dianji(ev) {
+            var e = ev || window.event;
+            disX = e.changedTouches[0].pageX;
+            list.style.transition = 'none';
+            listL = this.offsetLeft;
+            var num = Math.round(list.offsetLeft/w);
+            if( num == 0 ){
+                list.style.left = -4*w+'px';
+            }
+
+            if( -num == len-1 ){
+                list.style.left = -3*w+'px';
+            }
+        }
+
+        function move(ev) {
+            var e = ev || window.event,
+             b = e.changedTouches[0].pageX;
+            list.style.left = (b - disX) + listL +'px';
+        }
+
+        function end(ev) {
+            var num = Math.round(list.offsetLeft/w);
+            list.style.transition = '0.5s';
+            list.style.left = num*w + 'px';
+
+        }
+
+
+</script>
+</body>
+</html>

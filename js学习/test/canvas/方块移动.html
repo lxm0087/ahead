@@ -1,0 +1,29 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>方块移动</title>
+  </head>
+  <!-- /******设置直线的属性*******/ -->
+  <body style='background:#000;'>
+    <canvas id="canvas" width="1000" height="800" style="background:#fff;"></canvas>
+    <script type="text/javascript">
+      var oC = document.getElementById('canvas');
+      var oGc= oC.getContext('2d');
+          oGc.fillRect(100,100,100,100);
+      var num =0;
+    var timer = setInterval(function(){
+          num++;
+          if(num <700){
+            oGc.clearRect(0,0,oC.width,oC.height);
+            oGc.fillRect(num,num,100,100);
+          }else{
+            oGc.clearRect(0,0,oC.width,oC.height);
+             location.reload();
+          }
+
+     },30);
+    </script>
+  </body>
+</html>

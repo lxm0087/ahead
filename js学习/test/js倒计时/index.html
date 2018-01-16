@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>倒计时</title>
+    <script
+  src="http://code.jquery.com/jquery-2.2.4.min.js"
+  integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
+  crossorigin="anonymous"></script>
+  </head>
+  <body>
+    <div class="mall_crowd mb10 border_t">
+           <h3 class="mall_titleOne"><span class="fl mr10">限时秒杀</span><div class="fl time" remaintime="1442400030"></div> <a href="" class="more fr black6">更多&gt;&gt;</a></h3>
+           <script>
+
+           console.log( new Date(1442200030) + '\n' + new Date())
+           $(function(){
+               var dateTime = new Date();
+               var difference = dateTime.getTime() - 1442200030*1000;
+               setInterval(function(){
+                 $("[remaintime]").each(function(){
+                   var obj = $(this);
+                   var endTime = new Date(parseInt(obj.attr('remaintime')) * 1000);
+                   var nowTime = new Date();
+                   var nMS=endTime.getTime() - nowTime.getTime() + difference;
+                   var myD=Math.floor(nMS/(1000 * 60 * 60 * 24));
+                   var myH=Math.floor(nMS/(1000*60*60)) % 24;
+                   var myM=Math.floor(nMS/(1000*60)) % 60;
+                   var myS=Math.floor(nMS/1000) % 60;
+                   var myMS=Math.floor(nMS/100) % 10;
+                   if(myD>= 0){
+                       var str = "<span>"+myD+"</span>天"+"<span>"+myH+"</span>时"+"<span>"+myM+"</span>分"+"<span>"+myS+"</span>秒";
+                   }else{
+                       var str = "真遗憾您来晚了，活动已经结束关注下次哦。";
+                   }
+                   obj.html(str);
+                 });
+               }, 100);
+           });
+           </script>
+  </body>
+</html>

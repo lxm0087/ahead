@@ -1,0 +1,24 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>canvas1</title>
+  </head>
+  <!-- /***绘制三角形****/ -->
+  <body style='background:#000;'>
+    <canvas id="canvas" width="1000" height="800" style="background:#fff;"></canvas>
+    <script type="text/javascript">
+      var oC = document.getElementById('canvas');
+      var oGc=oC.getContext('2d');
+          oGc.beginPath();
+          oGc.moveTo(100,200);
+          oGc.lineTo(200,300);
+          oGc.lineTo(300,300);
+          oGc.fillStyle ='red';
+          oGc.closePath();
+          oGc.fill();
+          // oGc.stroke();
+    </script>
+  </body>
+</html>

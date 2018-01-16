@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>手机调取图片集</title>
+  </head>
+   <video id='you' src="videofile.ogg" autoplay poster="posterimage.jpg">
+
+   </video>
+  <body>
+    <script type="text/javascript">
+    var video = document.getElementById("you");
+     navigator.getUserMedia({video:true}, function (stream) {
+        video.src = window.webkitURL.createObjectURL(stream);
+    }, function (error) { alert(error); });
+    </script>
+
+  </body>
+</html>

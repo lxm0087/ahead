@@ -1,0 +1,25 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>test</title>
+  </head>
+  <body style='background:#000;'>
+    <img id='_img' src="https://ss0.bdstatic.com/5aV1bjqh_Q23odCf/static/superman/img/logo/bd_logo1_31bdc765.png" style="display:none;" alt="">
+    <canvas id="canvas" width="1000" height="800" style="background:#fff;"></canvas>
+    <script type="text/javascript">
+      var oC = document.getElementById('canvas');
+      var oGc=oC.getContext('2d');
+      var img = document.getElementById('_img');
+      img.onload = function(){
+        oGc.drawImage(img,10,10);
+      }
+//       oGc.font="30px Arial";
+// oGc.strokeText("Hello World",10,50);
+          // oGc.font='30px 方正字体';
+          // oGc.strokeText('你好',100,50);
+
+    </script>
+  </body>
+</html>

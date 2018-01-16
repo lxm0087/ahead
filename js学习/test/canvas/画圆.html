@@ -1,0 +1,24 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>test</title>
+  </head>
+  <body style='background:#000;'>
+    <canvas id="canvas" width="1000" height="800" style="background:#fff;"></canvas>
+    <script type="text/javascript">
+      var oC = document.getElementById('canvas');
+      var oGc= oC.getContext('2d');
+            oGc.beginPath();
+              for(var i =1;i<=60;i++){
+                oGc.moveTo(200,200);
+                oGc.arc(200,200,150,6*i*Math.PI/180,6*(i+1)*Math.PI/180);
+
+              }
+  oGc.closePath();
+  oGc.stroke();
+
+    </script>
+  </body>
+</html>
