@@ -1,0 +1,21 @@
+<html>
+<head>
+<title>鼠标移至图片后抖动的JS代码 </title>
+</head>
+<BODY> 
+<style>.shakeimage{position:relative; left:100px; top:100px;}</style> 
+
+<img src="http://www.jb51.net/images/logo.gif" class="shakeimage" onMouseover="shake(this,'onmouseout')" > 
+
+	<script language="JavaScript1.2"> 
+		var typ=["marginTop","marginLeft"],rangeN=10,timeout=20; 
+		function shake(o,end){ 
+		var range=Math.floor(Math.random()*rangeN); 
+		var typN=Math.floor(Math.random()*typ.length); 
+		o["style"][typ[typN]]=""+range+"px"; 
+		var shakeTimer=setTimeout(function(){shake(o,end)},timeout); 
+		o[end]=function(){clearTimeout(shakeTimer)}; 
+	} 
+</script> 
+</body>
+</html> 
